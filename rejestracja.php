@@ -1,4 +1,4 @@
-<!DOCUMENT html>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Tegridy Farm's-rejestracja</title>
@@ -16,7 +16,7 @@
 <img id="recznik" src="IMG/recznik.png" alt="recznik">
 <img id="randy" src="IMG/randy.png" alt="randy">
 <div class="rej">
-    <form action="rejestracjaSkrypt.php" method="POST">
+    <form action="php/rejestracjaSkrypt.php" method="POST">
     <div id="pola">
         <label>Imie</label>
         <input type="text" name="imie">
@@ -39,7 +39,7 @@
     </div>
     <div id="pola">
         <label>E-Mail</label>
-        <input type="mail" name="mail">
+        <input type="email" name="mail">
     </div>
     <div id="pola">
         <label>Adress*</label>
@@ -49,15 +49,16 @@
         <input type="submit" name="rejestracja" value="SIGN IN">
     </div>
     <form>
-</div>
-
-
-<?php
+      <?php
 session_start();
 if(isset($_SESSION["Err"])){
         echo "<p class='error'>".$_SESSION["Err"]."</p>";
         session_unset();
 }
-?>
+?>  
+</div>
+
+
+
 </body>
 </html>

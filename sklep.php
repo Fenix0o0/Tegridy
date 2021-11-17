@@ -11,7 +11,7 @@
 <img src="logo.png" alt="Logo" class ="logo">
 <h2>Witaj w sklepie!</h2>
 <?php
-include('connect.php');
+include('php/connect.php');
 $sql = "SELECT imie, nazwisko, adres, mail, administrator from klienci where id='".$_GET['klient']."'";
 $result = mysqli_query($connect, $sql);
 $dane = mysqli_fetch_assoc($result);

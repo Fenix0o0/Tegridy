@@ -24,19 +24,22 @@ if($wynik['login'] != $_POST['login']){
         if(!empty($imie) && !empty($nazwisko) && !empty($haslo) && !empty($mail)){
             $sql = "INSERT INTO `klienci` (`Id`, `Imie`, `Nazwisko`, `Adres`, `mail`, `haslo`, `login`, `administrator`) VALUES (NULL, '$imie', '$nazwisko', '$adres', '$mail', '$haslo', '$login', '0')";
             $result = mysqli_query($connect, $sql);
-            header("location:index.php");
+           header("location:../index.php");
             $_SESSION["Err"] = "Pomyślnie zarejestrowano!";
         }else{
             $_SESSION["Err"] = "Nie podano imienia";
-            header("location:rejestracja.php");
+            header("location:../rejestracja.php");
         }
 
     }else{
-        header("location:rejestracja.php");
+        header("location:../rejestracja.php");
         $_SESSION["Err"] = "Hasła różnią się od siebie";
     }
 }else{
-    header("location:rejestracja.php");
+    header("location:../rejestracja.php");
     $_SESSION["Err"] = "Login jest już zajęty";
 }
+
+
+  
 ?>

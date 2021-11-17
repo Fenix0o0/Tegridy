@@ -9,7 +9,7 @@
 </head>
 <body>
 <h2>Logowanie</h2>
-<form action="logowanie.php" method="POST">
+<form action="php/logowanie.php" method="POST">
 <label>Login: </label>
 <input type="text" name="login">
 <label>Hasło: </label>
