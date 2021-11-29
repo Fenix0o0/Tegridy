@@ -8,48 +8,52 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body class="bg-gradient">
+<body class="p-3 mb-2 bg-success text-white">
 <div class="log">
-    <img src="IMG/logo.png" alt="rolnik">
+    <img src="IMG/logo.png" alt="rolnik" float: right;>
     <h1>Tegridy's Farm</h1>
     <p>Zarejestruj się</p>
 </div>
-<img id="recznik" src="IMG/recznik.png" alt="recznik">
-<img id="randy" src="IMG/randy.png" alt="randy">
-<div class="rej">
-    <form action="php/rejestracjaSkrypt.php" method="POST">
-    <div id="pola">
+<div class="mx-auto" style="width: 100%;">
+<img src="IMG/randy.png" class="rounded float-right" alt="randy" id="randy">
+<img src="IMG/recznik.png" class="rounded float-left" alt="recznik" id="recznik">
+<div class="mx-auto" style="width: 500px;">
+<form action="php/rejestracjaSkrypt.php" method="POST">
+    <div class="form-group">
         <label>Imie</label>
-        <input type="text" name="imie">
+        <input type="text" name="imie" class="form-control" placeholder="Podaj swoje imie">
     </div>
-    <div id="pola">
+    <div class="form-group">
         <label>Nazwisko</label>
-        <input type="text" name="nazwisko">
+        <input type="text" name="nazwisko" class="form-control" placeholder="Podaj swoje nazwisko">
     </div>
-    <div id="pola">
+    <div class="form-group">
         <label>Login</label>
-        <input type="text" name="login">
+        <input type="text" name="login" class="form-control" placeholder="Podaj Login">
     </div>
-    <div id="pola">
+    <div class="form-group">
         <label>Hasło</label>
-        <input type="password" name="haslo" id="passwd">
+        <input type="password" name="haslo" id="passwd" class="form-control" placeholder="Podaj Haslo">
     </div>
-    <div id="pola">
+    <div class="form-group">
         <label>Powtórz Hasło</label>
-        <input type="password" name="chkpsswd" id="passwdchk">
+        <input type="password" name="chkpsswd" id="passwdchk" class="form-control" placeholder="Powtórz Haslo">
     </div>
-    <div id="pola">
+    <div class="form-group">
         <label>E-Mail</label>
-        <input type="email" name="mail">
+        <input type="email" name="mail" class="form-control" placeholder="Podaj E-Mail">
     </div>
-    <div id="pola">
+    <div class="form-group">
         <label>Adress*</label>
-        <input type="text" name="adress">
+        <input type="text" name="adress" class="form-control" placeholder="Podaj Adres">
     </div>
-    <div id="pola">
-        <input type="submit" name="rejestracja" value="SIGN IN">
+    <div class="form-group">
+        <input type="submit" name="rejestracja" value="SIGN IN" class="btn btn-primary">
     </div>
-    <form>
+</form>
+</div>
+
+</div>
       <?php
 session_start();
 if(isset($_SESSION["Err"])){
@@ -58,6 +62,5 @@ if(isset($_SESSION["Err"])){
 }
 ?>  
 </div>
-
 </body>
 </html>
