@@ -1,4 +1,4 @@
-body {
+/* body { 
   color: rgb(0, 0, 0);
   margin: auto;
 }
@@ -66,4 +66,5 @@ body {
   margin: 15px;
   padding: 5px;
   background-color: green;
-}
+} */
+background-image: var(.bg-success.bg-gradient);
