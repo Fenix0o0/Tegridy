@@ -10,13 +10,13 @@
 </head>
 <body class="p-3 mb-2 bg-success text-white">
 <div class="log">
-    <img src="IMG/logo.png" alt="rolnik" float: right;>
-    <h1>Tegridy's Farm</h1>
-    <p>Zarejestruj się</p>
+    <img src="IMG/logo.png" alt="rolnik" style="width:100px; height: 100px; float: right;">
+    <h1 style="padding-left: 45%;">Tegridy's Farm</h1>
+    <p style="padding-left: 50%;">Zarejestruj się</p>
 </div>
-<div class="mx-auto" style="width: 100%;">
-<img src="IMG/randy.png" class="rounded float-right" alt="randy" id="randy">
+<div class="d-flex justify-content-evenly">
 <img src="IMG/recznik.png" class="rounded float-left" alt="recznik" id="recznik">
+
 <div class="mx-auto" style="width: 500px;">
 <form action="php/rejestracjaSkrypt.php" method="POST">
     <div class="form-group">
@@ -52,7 +52,7 @@
     </div>
 </form>
 </div>
-
+<img src="IMG/randy.png" class="rounded float-right" alt="randy" id="randy">
 </div>
       <?php
 session_start();
