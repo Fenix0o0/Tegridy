@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body class="bg-gradient">
 <div class="log">
     <img src="IMG/logo.png" alt="rolnik">
     <h1>Tegridy's Farm</h1>
