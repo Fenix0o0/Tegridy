@@ -1,4 +1,4 @@
-<!DOCUMENT html>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Tegridy Farm's-rejestracja</title>

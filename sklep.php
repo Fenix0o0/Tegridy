@@ -17,11 +17,11 @@ $result = mysqli_query($connect, $sql);
 $dane = mysqli_fetch_assoc($result);
 if($dane['administrator'] == 1){
     echo "<div><p>Konto administratorskie</p>";
-    echo "<ul><li><a href='dodajProdukt.php'>Dodaj Produkt</a></li>
-            <li><a href='edycjaProdukt.php'>Edytuj Produkty</a></li>
-            <li><a href='usuwanieProdukt.php'>Usuń Produkt</a></li>
-            <li><a href='listaKlientow.php'>Lista Klientów</a></li>
-            <li><a href='zamowienia.php'>Zamowienia</a></li>
+    echo "<ul><li><a href='administrator/dodajProdukt.php'>Dodaj Produkt</a></li>
+            <li><a href='administrator/edycjaProdukt.php'>Edytuj Produkty</a></li>
+            <li><a href='administrator/usuwanieProdukt.php'>Usuń Produkt</a></li>
+            <li><a href='administrator/listaKlientow.php'>Lista Klientów</a></li>
+            <li><a href='administrator/zamowienia.php'>Zamowienia</a></li>
             <li><a href='index.php'>Wyloguj</a></li>
             </ul>";
     echo "</div>";
