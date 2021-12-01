@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Tegridy Farm's-dodawanie</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel = "icon" href = "https://i.pinimg.com/564x/56/16/ca/5616cabd8217f23495a727d1c2319cec.jpg" 
         type = "image/x-icon">
 <meta charset="UTF-8">
@@ -32,11 +33,7 @@ while($kat = mysqli_fetch_assoc($result)){
 <input type="submit" value="Zatwierdź dodanie">
 </form>  
 <?php
-session_start();
-if(isset($_SESSION["info"])){
-        echo "<p class='error'>".$_SESSION["info"]."</p>";
-        unset($_SESSION['info']);
-}
+include('../php/alert.php');
 ?>
 
 </body>

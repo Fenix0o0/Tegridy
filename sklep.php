@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>Tegridy Farm's-rejestracja</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel = "icon" href = "https://i.pinimg.com/564x/56/16/ca/5616cabd8217f23495a727d1c2319cec.jpg" 
         type = "image/x-icon">
 <meta charset="UTF-8">
