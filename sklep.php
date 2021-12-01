@@ -11,15 +11,15 @@
 <img src="logo.png" alt="Logo" class ="logo">
 <h2>Witaj w sklepie!</h2>
 <?php
+session_start();
 include('php/connect.php');
-$sql = "SELECT imie, nazwisko, adres, mail, administrator from klienci where id='".$_GET['klient']."'";
+$sql = "SELECT imie, nazwisko, adres, mail, administrator from klienci where id='".$_SESSION['klient']."'";
 $result = mysqli_query($connect, $sql);
 $dane = mysqli_fetch_assoc($result);
 if($dane['administrator'] == 1){
     echo "<div><p>Konto administratorskie</p>";
     echo "<ul><li><a href='administrator/dodajProdukt.php'>Dodaj Produkt</a></li>
-            <li><a href='administrator/edycjaProdukt.php'>Edytuj Produkty</a></li>
-            <li><a href='administrator/usuwanieProdukt.php'>Usuń Produkt</a></li>
+            <li><a href='administrator/listaProdukt.php'>Lista Produktów</a></li>
             <li><a href='administrator/listaKlientow.php'>Lista Klientów</a></li>
             <li><a href='administrator/zamowienia.php'>Zamowienia</a></li>
             <li><a href='index.php'>Wyloguj</a></li>
