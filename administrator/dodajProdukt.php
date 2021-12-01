@@ -23,10 +23,10 @@
 <label>Kategoria</label>
 <?php
 include('../php/connect.php');
-$sql = "SELECT id, nazwa from kategorie";
+$sql = "SELECT id, nazwaKat from kategorie";
 $result = mysqli_query($connect, $sql);
 while($kat = mysqli_fetch_assoc($result)){
-    echo "<input type='radio' name='kat' value='".$kat['id']."'>".$kat['nazwa']."</input>";
+    echo "<input type='radio' name='kat' value='".$kat['id']."'>".$kat['nazwaKat']."</input>";
 }
 ?>
 <input type="submit" value="Zatwierdź dodanie">
