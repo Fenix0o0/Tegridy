@@ -10,7 +10,7 @@
 <header>
 <?php
 include("../php/connect.php");
-$sql = "SELECT p.id, p.nazwa, k.nazwa , p.ilosc, p.cena FROM produkty p JOIN kategorie k ON (k.id = p.id_kategoria)";
+$sql = "SELECT p.id, p.nazwa, k.nazwaKat , p.ilosc, p.cena FROM produkty p JOIN kategorie k ON (k.id = p.id_kategoria)";
 $result = mysqli_query($connect, $sql);
 echo "<table>";
 while($produkty = mysqli_fetch_assoc($result)){
@@ -19,7 +19,7 @@ while($produkty = mysqli_fetch_assoc($result)){
             <td>".$produkty['nazwa']."</td>
             <td>".$produkty['ilosc']."</td>
             <td>".$produkty['cena']."</td>
-            <td>".$produkty['nazwa']."</td>
+            <td>".$produkty['nazwaKat']."</td>
             <td><a href=edycjaProdukt.php?id='".$produkty['id']."'>Edytuj</a></td>
             <td><a href=../php/usuwanie.php?id='".$produkty['id']."'>Usuń</a></td>
         </tr>";
