@@ -34,14 +34,14 @@ if($_GET['opcja'] == 0){
                 unset($_SESSION['ilosc']);
                 unset($_SESSION['obraz']);
                 unset($_SESSION['kat']);
-            header("location:../administrator/dodajProdukt.php");
+            header("location:../dodajProdukt.php");
             $_SESSION['info'] = "Dodano pomyślnie";
         }else{
             $_SESSION['info'] = "Pola nazwa, opis, cena, ilość, obraz i kategoria muszą być uzupełnione";
-            header("location:../administrator/dodajProdukt.php");}
+            header("location:../dodajProdukt.php");}
     }else{
-        $_SESSION['info'] = "Produkt o podanej nazwie już istnieje. Czy chcesz dodać produkt o takiej samej nazwie? Jeśli chcesz zmienić dane produktu przejdź do panelu <a href='../administrator/edycjaProdukt.php?id=".$dane['id']."'>edycji</a>. <a href='../php/dodawanie.php?opcja=1'>Dodaj mimo to.</a>";
-        header("location:../administrator/dodajProdukt.php");
+        $_SESSION['info'] = "Produkt o podanej nazwie już istnieje. Czy chcesz dodać produkt o takiej samej nazwie? Jeśli chcesz zmienić dane produktu przejdź do panelu <a href='../edycjaProdukt.php?id=".$dane['id']."'>edycji</a>. <a href='php/dodawanie.php?opcja=1'>Dodaj mimo to.</a>";
+        header("location:../dodajProdukt.php");
     }
 }else if($_GET['opcja'] == 1){
     $nazwa = $_SESSION['nazwa'];
@@ -53,7 +53,6 @@ if($_GET['opcja'] == 0){
 
         $sql="INSERT INTO `produkty` (`id`, `nazwa`, `opis`, `cena`, `ilosc`, `obraz`, `id_kategoria`) VALUES (NULL, '$nazwa', '$opis', '$cena', '$ilosc', '$obraz', '$cat')";
         $result = mysqli_query($connect, $sql);
-        header("location:../administrator/dodajProdukt.php");
         $_SESSION['info'] = "Dodano pomyślnie";
         unset($_SESSION['nazwa']);
         unset($_SESSION['opis']);
@@ -61,6 +60,7 @@ if($_GET['opcja'] == 0){
         unset($_SESSION['ilosc']);
         unset($_SESSION['obraz']);
         unset($_SESSION['kat']);
+        header("location:../dodajProdukt.php");
 }
 
 // !!!STARA WERSJA!!!

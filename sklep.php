@@ -9,42 +9,29 @@
 </head>
 <body>
 <header>
-<img src="logo.png" alt="Logo" class ="logo">
-<h2>Witaj w sklepie!</h2>
-<?php
-session_start();
-include('php/connect.php');
-$sql = "SELECT imie, nazwisko, adres, mail, administrator from klienci where id='".$_SESSION['klient']."'";
-$result = mysqli_query($connect, $sql);
-$dane = mysqli_fetch_assoc($result);
-if($dane['administrator'] == 1){
-    echo "<div><p>Konto administratorskie</p>";
-    echo "<ul><li><a href='administrator/dodajProdukt.php'>Dodaj Produkt</a></li>
-            <li><a href='administrator/listaProdukt.php'>Lista Produktów</a></li>
-            <li><a href='administrator/listaKlientow.php'>Lista Klientów</a></li>
-            <li><a href='administrator/zamowienia.php'>Zamowienia</a></li>
-            <li><a href='index.php'>Wyloguj</a></li>
-            </ul>";
-    echo "</div>";
-}else{
-    echo "<div><p>Konto Klienta</p>";
-    echo "<ul><li><a href='index.php'>Wyloguj</a></li>";
-    echo "</div>";
-}
-?>
+<?php include('php/nav.php'); ?>
 </header>
 <section>
-    <h2> Produkty </h2>
-<?php
-$sql = "SELECT * FROM produkty";
-$result = mysqli_query($connect, $sql);
-echo "<div>";
-while($produkty = mysqli_fetch_assoc($result)){
-    echo "<div class='produkt'><p>".$produkty['nazwa']."</p>";
-    echo "<p>".$produkty['opis']."</p></div>";
-}
-echo "</div>";
-?>
-
+<div class='container-md'>
+    <?php
+    include('php/alert.php');
+    $sql = "SELECT * FROM produkty";
+    $result = mysqli_query($connect, $sql);
+        echo "<div class='row'>";
+            while($produkty = mysqli_fetch_assoc($result)){
+                echo '<div class="card" style="width: 18rem;">';
+                echo '<img src="'.$produkty['obraz'].'" class="card-img-top" alt="Obrazek Produktu">';
+                    echo '<div class="card-body">';
+                        echo '<h5 class="card-title">'.$produkty['nazwa'].'</h5>';
+                        echo '<p class="card-text">'.$produkty['opis'].'</p>';
+                        echo '<p>Cena: '.$produkty['cena'].'PLN</p>';
+                        echo '<form method="POST" action="php/zlecenie.php?id='.$produkty['id'].'"><input type="number" name="ilosc" placeholder="Ilość: '.$produkty['ilosc'].'"><input type="Submit" class="btn btn-primary" placeholder="Zamów"></form>';
+                        
+                    echo '</div>';
+                echo '</div>';
+            }
+        echo "</div>";
+    ?>
+</div>
 </body>
 </html>

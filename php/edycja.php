@@ -17,7 +17,7 @@ if(isset($_SESSION['id'])){
             $sql="UPDATE produkty SET nazwa='".$nazwa."', opis='".$opis."', cena='".$cena."', ilosc='".$ilosc."', obraz='".$obraz."', id_kategoria='".$kat."' WHERE id=".$_SESSION['id'];
             $result = mysqli_query($connect, $sql);
             unset($_SESSION['id']);
-            header("location:../administrator/dodajProdukt.php");
+            header("location:../dodajProdukt.php");
             $_SESSION['info'] = "Edytowano pomyślnie";
         }
 ?>
