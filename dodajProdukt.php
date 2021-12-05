@@ -25,15 +25,24 @@
 <label>Obrazek: </label>
 <input type="text" name="obraz">
 <label>Kategoria</label>
+<select name='kat'>
 <?php
 $sql = "SELECT id, nazwaKat from kategorie";
 $result = mysqli_query($connect, $sql);
 while($kat = mysqli_fetch_assoc($result)){
-    echo "<input type='radio' name='kat' value='".$kat['id']."'>".$kat['nazwaKat']."</input>";
+    echo "<option value='".$kat['id']."'>".$kat['nazwaKat']."</option>";
 }
 ?>
+</select>
 <input type="submit" value="Zatwierdź dodanie">
 </form>  
+<h2>Dodaj kategorie</h2>
+<form method="post"  action='php/dodajKategorie.php'>
+    <input type='text' name='nazwa' placeholder="nazwa">
+    <input type='text' name='opis' placeholder="opis">
+    <input type='submit' placeholder="Dodaj">
+</form>
+
 <?php
 include('php/alert.php');
 ?>

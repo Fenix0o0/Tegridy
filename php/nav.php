@@ -10,15 +10,16 @@
                 $result = mysqli_query($connect, $sql);
                 $dane = mysqli_fetch_assoc($result);
                     if($dane['administrator'] == 1){
-                            echo "<a class='nav-link active' aria-current='page' href='sklep.php'>Sklep</a>";
-                            echo "<a class='nav-link' href='dodajProdukt.php'>Dodawanie Produktów</a>";
-                            echo "<a class='nav-link' href='listaProdukt.php'>Lista Produktów</a>";
-                            echo "<a class='nav-link disabled' href='listaKlentow.php' tabindex='-1' aria-disabled='true'>Lista Klientów</a>";
-                            echo "<a class='nav-link' href='zamowienia.php'>Zamowienia</a>";
-                            echo "<a class='nav-link' href='php/wylogowanie.php'>Wyloguj</a>";
+                        echo "<a class='nav-link active' aria-current='page' href='sklep.php'>Sklep</a>";
+                        echo "<a class='nav-link' href='dodajProdukt.php'>Dodawanie Produktów</a>";
+                        echo "<a class='nav-link' href='listaProdukt.php'>Lista Produktów</a>";
+                        echo "<a class='nav-link disabled' href='listaKlentow.php' tabindex='-1' aria-disabled='true'>Lista Klientów</a>";
+                        echo "<a class='nav-link' href='zamowienia.php'>Zamowienia</a>";
+                        echo "<a class='nav-link' href='php/wylogowanie.php'>Wyloguj</a>";
                     }else{
-                            echo "<ul class='navbar-nav'><li class='nav-item'><a class='nav-link' href='mojeZamowienia.php?klient=".$_SESSION['klient']."'>Moje Zamowienia</a></li>";
-                            echo "<li class='nav-item'><a class='nav-link active' href='php/wylogowanie.php'>Wyloguj</a></li></ul>";
+                        echo "<a class='nav-link active' aria-current='page' href='sklep.php'>Sklep</a>";
+                        echo "<a class='nav-link' href='mojeZamowienia.php'>Moje Zamowienia</a>";
+                        echo "<a class='nav-link active' href='php/wylogowanie.php'>Wyloguj</a>";
                     }
                 }else{
                     echo "<h2>Logowanie</h2>";

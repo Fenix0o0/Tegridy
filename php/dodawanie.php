@@ -34,7 +34,7 @@ if($_GET['opcja'] == 0){
                 unset($_SESSION['ilosc']);
                 unset($_SESSION['obraz']);
                 unset($_SESSION['kat']);
-            header("location:../dodajProdukt.php");
+            header("location:../listaProdukt.php");
             $_SESSION['info'] = "Dodano pomyślnie";
         }else{
             $_SESSION['info'] = "Pola nazwa, opis, cena, ilość, obraz i kategoria muszą być uzupełnione";
@@ -60,7 +60,7 @@ if($_GET['opcja'] == 0){
         unset($_SESSION['ilosc']);
         unset($_SESSION['obraz']);
         unset($_SESSION['kat']);
-        header("location:../dodajProdukt.php");
+        header("location:../listaProdukt.php");
 }
 
 // !!!STARA WERSJA!!!

@@ -13,7 +13,7 @@
             $result3 = mysqli_query($connect, $sql_zamowienie);
             header('location:../sklep.php');
         }else{
-            $sql_produkt = "UPDATE produkty SET ilosc='0' WHERE id='".$_GET['id']."'";
+            $sql_produkt = "UPDATE produkty SET ilosc='$ilosc' WHERE id='".$_GET['id']."'";
             $sql_zamowienie = "INSERT INTO zamowienia (id, id_klient, data, id_produkt, Prod_ilosc, Status) VALUES (NULL, '".$_SESSION['klient']."','".date('Y-m-d')."','".$_GET['id']."', '".$_POST['ilosc']."', 'WSTRZYMANO')";
             $result2 = mysqli_query($connect, $sql_produkt);
             $result3 = mysqli_query($connect, $sql_zamowienie);

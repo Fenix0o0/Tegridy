@@ -25,7 +25,7 @@ while($produkty = mysqli_fetch_assoc($result)){
             <td>".$produkty['cena']."</td>
             <td>".$produkty['nazwaKat']."</td>
             <td><a href=edycjaProdukt.php?id='".$produkty['id']."'>Edytuj</a></td>
-            <td><a href=php/usuwanie.php?id='".$produkty['id']."'>Usuń</a></td>
+            <td><a href=php/usuwanie.php?id='".$produkty['id']."&produkt=yes'>Usuń</a></td>
         </tr>";
 }
 echo "</tbody></table>";

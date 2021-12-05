@@ -13,9 +13,9 @@
 </header>
 <?php
 include("php/connect.php");
-$sql = "SELECT z.id, z.data, z.Prod_Ilosc, p.nazwa, p.cena, z.status FROM zamowienia z JOIN produkty p ON (z.id_produkt = p.id) where z.id_klient=".$_GET['klient'];
+$sql = "SELECT z.id, z.data, z.Prod_Ilosc, p.nazwa, p.cena, z.status FROM zamowienia z JOIN produkty p ON (z.id_produkt = p.id) where z.id_klient=".$_SESSION['klient'];
 $result = mysqli_query($connect, $sql);
-echo "<table class='table table-success table-hover'><thead><tr><th>ID</ih><th>data</th><th>Ilosc produktu</th><th>Nazwa Produktu</th><th>Cena</th><th>Status</th><th colspan=2>Opcje</th></thead><tbody>";
+echo "<table class='table table-dark table-hover'><thead><tr><th>ID</ih><th>data</th><th>Ilosc produktu</th><th>Nazwa Produktu</th><th>Cena</th><th>Status</th><th colspan=2>Opcje</th></thead><tbody>";
 while($zamowienia = mysqli_fetch_assoc($result)){
     $cena = $zamowienia['cena']*$zamowienia['Prod_Ilosc'];
     echo "<tr>
@@ -26,16 +26,16 @@ while($zamowienia = mysqli_fetch_assoc($result)){
             <td>".$cena."</td>";
             if($zamowienia['status'] == 'ZREALIZOWANO'){
                 echo "<td style='color:#00FF00;'>".$zamowienia['status']."</td>";
-            }else if($zamowienia['status'] == 'OCZEKUJĄCY'){
+            }else if($zamowienia['status'] == 'OCZEKUJĄCE'){
                 echo "<td style='color:#FFFF00;'>".$zamowienia['status']."</td>";
             }else if($zamowienia['status'] == 'ANULOWANO'){
                 echo "<td style='color:#FF0000;'>".$zamowienia['status']."</td>";
             }else if($zamowienia['status'] == 'WSTRZYMANO'){
-                echo "<td style='color:#FFFF00;'>".$zamowienia['status']."</td>";
+                echo "<td style='color:#FFAA00;'>".$zamowienia['status']."</td>";
             }else if($zamowienia['status'] == 'W DRODZE'){
                 echo "<td style='color:#0000FF;'>".$zamowienia['status']."</td>";
             }
-            echo "<td><a href=php/usuwanie.php?id='".$zamowienia['id']."'>Usuń</a></td>";
+            echo "<td><a href=php/usuwanie.php?id='".$zamowienia['id']."&zamowienie=yes'>Anuluj</a></td>";
     echo "</tr>";
 }
 echo "</tbody></table>";

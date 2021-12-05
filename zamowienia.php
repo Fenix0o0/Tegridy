@@ -15,7 +15,7 @@
 include("php/connect.php");
 $sql = "SELECT z.id, z.id_klient, z.data, z.Prod_Ilosc, z.id_produkt, p.cena, z.status FROM zamowienia z JOIN produkty p ON (z.id_produkt = p.id) ORDER BY id ASC";
 $result = mysqli_query($connect, $sql);
-echo "<table class='table table-success table-hover'><thead><tr><th>ID</ih><th>id klient</th><th>data</th><th>ilosc produktu</th><th>id_produkt</th><th>Cena</th><th>Status</th></thead><tbody>";
+echo "<table class='table table-dark table-hover'><thead><tr><th>ID</ih><th>id klient</th><th>data</th><th>ilosc produktu</th><th>id_produkt</th><th>Cena</th><th>Status</th><th>Zmień Status</th></thead><tbody>";
 while($zamowienia = mysqli_fetch_assoc($result)){
     $cena = $zamowienia['cena']*$zamowienia['Prod_Ilosc'];
     echo "<tr>
@@ -24,9 +24,26 @@ while($zamowienia = mysqli_fetch_assoc($result)){
             <td>".$zamowienia['data']."</td>
             <td>".$zamowienia['Prod_Ilosc']."</td>
             <td>".$zamowienia['id_produkt']."</td>
-            <td>".$cena."</td>
-            <td>".$zamowienia['status']."</td>
-        </tr>";
+            <td>".$cena."</td>";
+            if($zamowienia['status'] == 'ZREALIZOWANO'){
+                echo "<td style='color:#00FF00;'>".$zamowienia['status']."</td>";
+            }else if($zamowienia['status'] == 'OCZEKUJĄCE'){
+                echo "<td style='color:#FFFF00;'>".$zamowienia['status']."</td>";
+            }else if($zamowienia['status'] == 'ANULOWANO'){
+                echo "<td style='color:#FF0000;'>".$zamowienia['status']."</td>";
+            }else if($zamowienia['status'] == 'WSTRZYMANO'){
+                echo "<td style='color:#FFAA00;'>".$zamowienia['status']."</td>";
+            }else if($zamowienia['status'] == 'W DRODZE'){
+                echo "<td style='color:#0000FF;'>".$zamowienia['status']."</td>";
+            }
+            echo "<td><form method='POST' action='php/statusUpdate.php?id=".$zamowienia['id']."'><select name='status'>
+            <option value='ZREALIZOWANO'>ZREALIZOWANO</option>
+            <option value='OCZEKUJĄCE'>OCZEKUJĄCE</option>
+            <option value='ANULOWANO'>ANULOWANO</option>
+            <option value='WSTRZYMANO'>WSTRZYMANO</option>
+            <option value='W DRODZE'>W DRODZE</option>
+            </select><input type='submit' placeholder='Zapisz'></form>";
+        echo "</tr>";
 }
 echo "</tbody></table>";
 
