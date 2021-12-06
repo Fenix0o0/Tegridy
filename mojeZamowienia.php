@@ -13,7 +13,7 @@
 </header>
 <?php
 include("php/connect.php");
-$sql = "SELECT z.id, z.data, z.Prod_Ilosc, p.nazwa, p.cena, z.status FROM zamowienia z JOIN produkty p ON (z.id_produkt = p.id) where z.id_klient=".$_SESSION['klient'];
+$sql = "SELECT z.id, z.data, z.Prod_Ilosc, p.nazwa, p.cena, z.status, z.id_produkt FROM zamowienia z JOIN produkty p ON (z.id_produkt = p.id) where z.id_klient=".$_SESSION['klient'];
 $result = mysqli_query($connect, $sql);
 echo "<table class='table table-dark table-hover'><thead><tr><th>ID</ih><th>data</th><th>Ilosc produktu</th><th>Nazwa Produktu</th><th>Cena</th><th>Status</th><th colspan=2>Opcje</th></thead><tbody>";
 while($zamowienia = mysqli_fetch_assoc($result)){
@@ -35,7 +35,7 @@ while($zamowienia = mysqli_fetch_assoc($result)){
             }else if($zamowienia['status'] == 'W DRODZE'){
                 echo "<td style='color:#0000FF;'>".$zamowienia['status']."</td>";
             }
-            echo "<td><a href=php/usuwanie.php?id='".$zamowienia['id']."&zamowienie=yes'>Anuluj</a></td>";
+            echo "<td><a href=php/usuwanie.php?id='".$zamowienia['id']."&zamowienie=yes&Ilosc=".$zamowienia['Prod_Ilosc']."&prod=".$zamowienia['id_produkt']."'>Anuluj</a></td>";
     echo "</tr>";
 }
 echo "</tbody></table>";
