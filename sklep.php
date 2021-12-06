@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>Tegridy Farm's-rejestracja</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel = "icon" href = "https://i.pinimg.com/564x/56/16/ca/5616cabd8217f23495a727d1c2319cec.jpg" 
         type = "image/x-icon">
 <meta charset="UTF-8">
@@ -8,42 +9,33 @@
 </head>
 <body>
 <header>
-<img src="logo.png" alt="Logo" class ="logo">
-<h2>Witaj w sklepie!</h2>
-<?php
-include('php/connect.php');
-$sql = "SELECT imie, nazwisko, adres, mail, administrator from klienci where id='".$_GET['klient']."'";
-$result = mysqli_query($connect, $sql);
-$dane = mysqli_fetch_assoc($result);
-if($dane['administrator'] == 1){
-    echo "<div><p>Konto administratorskie</p>";
-    echo "<ul><li><a href='dodajProdukt.php'>Dodaj Produkt</a></li>
-            <li><a href='edycjaProdukt.php'>Edytuj Produkty</a></li>
-            <li><a href='usuwanieProdukt.php'>Usuń Produkt</a></li>
-            <li><a href='listaKlientow.php'>Lista Klientów</a></li>
-            <li><a href='zamowienia.php'>Zamowienia</a></li>
-            <li><a href='index.php'>Wyloguj</a></li>
-            </ul>";
-    echo "</div>";
-}else{
-    echo "<div><p>Konto Klienta</p>";
-    echo "<ul><li><a href='index.php'>Wyloguj</a></li>";
-    echo "</div>";
-}
-?>
+<?php include('php/nav.php'); ?>
 </header>
 <section>
-    <h2> Produkty </h2>
-<?php
-$sql = "SELECT * FROM produkty";
-$result = mysqli_query($connect, $sql);
-echo "<div>";
-while($produkty = mysqli_fetch_assoc($result)){
-    echo "<div class='produkt'><p>".$produkty['nazwa']."</p>";
-    echo "<p>".$produkty['opis']."</p></div>";
-}
-echo "</div>";
-?>
+<div class='container-md'>
+    <?php
+    include('php/alert.php');
+    $sql = "SELECT * FROM produkty";
+    $result = mysqli_query($connect, $sql);
+        echo "<div class='row'>";
+            while($produkty = mysqli_fetch_assoc($result)){
+                if($produkty['ilosc']>0){
+                $ilosc = $produkty['ilosc'];
+                }else{$ilosc='Brak produktu';}
 
+                echo '<div class="card" style="width: 18rem;">';
+                echo '<img src="'.$produkty['obraz'].'" class="card-img-top" alt="Obrazek Produktu">';
+                    echo '<div class="card-body">';
+                        echo '<h5 class="card-title">'.$produkty['nazwa'].'</h5>';
+                        echo '<p class="card-text">'.$produkty['opis'].'</p>';
+                        echo '<p>Cena: '.$produkty['cena'].'PLN</p>';
+                        echo '<form method="POST" action="php/zlecenie.php?id='.$produkty['id'].'"><input type="number" name="ilosc" placeholder="Ilość: '.$ilosc.'"><input type="Submit" class="btn btn-primary" placeholder="Zamów"></form>';
+                        
+                    echo '</div>';
+                echo '</div>';
+            }
+        echo "</div>";
+    ?>
+</div>
 </body>
 </html>

@@ -8,7 +8,8 @@ if(!empty($login)){
     $result = mysqli_query($connect, $sql);
         while($dane = mysqli_fetch_assoc($result)){
                 if($dane['haslo'] == md5($haslo)){
-                    header("location:../sklep.php?klient=$dane[id]");
+                    $_SESSION['klient'] = $dane['id'];
+                    header("location:../sklep.php");
                     
                 }else{
                     header("location:../index.php");
