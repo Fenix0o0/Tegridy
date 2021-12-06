@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-success">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark bg-gradient mb-3">
         <img src="img/logo.png" alt="Logo" class ="d-inline-block align-text-top" width="10%" height="10%">
                 <div class="collapse navbar-collapse">
                 <div class="navbar-nav">

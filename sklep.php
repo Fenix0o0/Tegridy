@@ -7,37 +7,38 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body class="bg-success bg-gradient">
+<body class="bg-secondary bg-gradient d-flex flex-column min-vh-100">
 <header>
 <?php include('php/nav.php'); ?>
 </header>
-<section>
-<div class="margines"> 
-    <div class='container-md'>
-        <?php
-        include('php/alert.php');
-        $sql = "SELECT * FROM produkty";
-        $result = mysqli_query($connect, $sql);
-            echo "<div class='row'>";
-                while($produkty = mysqli_fetch_assoc($result)){
-                    if($produkty['ilosc']>0){
-                    $ilosc = $produkty['ilosc'];
-                    }else{$ilosc='Brak produktu';}
-                    echo '<div class="bg-success"';
-                        echo '<div class="card" style="width: 18rem; margin: 0px 5px; padding-top: 5px;">';
-                        echo '<img src="'.$produkty['obraz'].'" class="card-img-top" alt="Obrazek Produktu">';
-                            echo '<div class="card-body">';
-                                echo '<h5 class="card-title">'.$produkty['nazwa'].'</h5>';
-                                echo '<p class="card-text">'.$produkty['opis'].'</p>';
-                                echo '<p>Cena: '.$produkty['cena'].'PLN</p>';
-                                echo '<form method="POST" action="php/zlecenie.php?id='.$produkty['id'].'"><input type="number" name="ilosc" placeholder="Ilość: '.$ilosc.'"><input type="Submit" class="btn btn-primary" placeholder="Zamów"></form>';
-                                
+<div class="container">
+    <section> 
+        <div class='container-md'>
+            <?php
+            include('php/alert.php');
+            $sql = "SELECT * FROM produkty";
+            $result = mysqli_query($connect, $sql);
+                echo "<div class='row'>";
+                    while($produkty = mysqli_fetch_assoc($result)){
+                        if($produkty['ilosc']>0){
+                        $ilosc = $produkty['ilosc'];
+                        }else{$ilosc='Brak produktu';}
+                        echo '<div class="bg-dark bg-gradient mb-3"';
+                            echo '<div class="card" style="width: 19rem; margin: 0px 5px; padding-top: 5px;">';
+                            echo '<img src="'.$produkty['obraz'].'" class="card-img-top" alt="Obrazek Produktu">';
+                                echo '<div class="card-body">';
+                                    echo '<h5 class="card-title">'.$produkty['nazwa'].'</h5>';
+                                    echo '<p class="card-text">'.$produkty['opis'].'</p>';
+                                    echo '<p>Cena: '.$produkty['cena'].'PLN</p>';
+                                    echo '<form method="POST" action="php/zlecenie.php?id='.$produkty['id'].'"><input type="number" name="ilosc" placeholder="Ilość: '.$ilosc.'"><input type="Submit" class="btn btn-primary" placeholder="Zamów"></form>';
+                                    
+                                echo '</div>';
                             echo '</div>';
-                        echo '</div>';
-                    
-                }
-            echo "</div>";
-        ?>
+                        
+                    }
+                echo "</div>";
+            ?>
+        </div>
     </div>
 </div>
 </body>
