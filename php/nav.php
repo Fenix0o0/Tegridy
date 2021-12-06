@@ -13,7 +13,6 @@
                         echo "<a class='nav-link active' aria-current='page' href='sklep.php'>Sklep</a>";
                         echo "<a class='nav-link' href='dodajProdukt.php'>Dodawanie Produktów</a>";
                         echo "<a class='nav-link' href='listaProdukt.php'>Lista Produktów</a>";
-                        echo "<a class='nav-link disabled' href='listaKlentow.php' tabindex='-1' aria-disabled='true'>Lista Klientów</a>";
                         echo "<a class='nav-link' href='zamowienia.php'>Zamowienia</a>";
                         echo "<a class='nav-link' href='php/wylogowanie.php'>Wyloguj</a>";
                     }else{
@@ -21,6 +20,8 @@
                         echo "<a class='nav-link' href='mojeZamowienia.php'>Moje Zamowienia</a>";
                         echo "<a class='nav-link active' href='php/wylogowanie.php'>Wyloguj</a>";
                     }
+                }else if(isset($_GET['rejestracja']) && $_GET['rejestracja']=='yes'){
+                    echo "<h2>Rejestracja</h2>";
                 }else{
                     echo "<h2>Logowanie</h2>";
                 }

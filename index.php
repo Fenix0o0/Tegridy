@@ -27,6 +27,6 @@ if(isset($_SESSION["Err"])){
         session_unset();
 }
 ?>
-<a href="rejestracja.php">Rejestracja</a>
+<a href="rejestracja.php?rejestracja=yes">Rejestracja</a>
 </body>
 </html>
