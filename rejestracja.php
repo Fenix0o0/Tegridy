@@ -8,12 +8,10 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body class="p-3 mb-2 bg-success text-white">
-<div class="log">
-    <img src="IMG/logo.png" alt="rolnik" style="width:100px; height: 100px; float: right;">
-    <h1 style="padding-left: 45%;">Tegridy's Farm</h1>
-    <p style="padding-left: 50%;">Zarejestruj się</p>
-</div>
+<body class="bg-secondary bg-gradient text-white">
+<header>
+<?php include('php/nav.php'); ?>
+</header>
 <div class="d-flex justify-content-evenly">
 <img src="IMG/recznik.png" class="rounded float-left" alt="recznik" id="recznik">
 
@@ -55,7 +53,6 @@
 <img src="IMG/randy.png" class="rounded float-right" alt="randy" id="randy">
 </div>
       <?php
-session_start();
 if(isset($_SESSION["Err"])){
         echo "<p class='error'>".$_SESSION["Err"]."</p>";
         session_unset();
