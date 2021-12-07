@@ -19,7 +19,7 @@
             $sql = "SELECT * FROM produkty";
             $result = mysqli_query($connect, $sql);
                 echo "<div class='row'>";
-                    while($produkty = mysqli_fetch_assoc($result)){
+                    while($produkty = mysqli_fetch_assoc($result)){ //wyświetlanie produktów
                         if($produkty['ilosc']>0){
                         $ilosc = $produkty['ilosc'];
                         }else{$ilosc='Brak produktu';}
@@ -30,7 +30,7 @@
                                     echo '<h5 class="card-title">'.$produkty['nazwa'].'</h5>';
                                     echo '<p class="card-text">'.$produkty['opis'].'</p>';
                                     echo '<p>Cena: '.$produkty['cena'].'PLN</p>';
-                                    echo '<form method="POST" action="php/zlecenie.php?id='.$produkty['id'].'"><input type="number" name="ilosc" placeholder="Ilość: '.$ilosc.'"><input type="Submit" class="btn btn-secondary mx-auto" placeholder="Zamów"></form>';
+                                    echo '<form method="POST" action="php/zlecenie.php?id='.$produkty['id'].'"><input type="number" name="ilosc" min=1 placeholder="Ilość: '.$ilosc.'"><input type="Submit" class="btn btn-secondary mx-auto" placeholder="Zamów"></form>';
                                     
                                 echo '</div>';
                             echo '</div>';

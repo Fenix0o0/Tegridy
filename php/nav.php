@@ -24,6 +24,7 @@
                     echo "<h2>Rejestracja</h2>";
                 }else{
                     echo "<h2>Logowanie</h2>";
+                    if($_SERVER['PHP_SELF'] != $_SESSION['logowanie_adres']){header('location:index.php');} //sprawdza czy się nie łazi po stronie bez zalogowania i wyrzuca ewentualnie na strone logowania
                 }
                 ?>
                 </div>

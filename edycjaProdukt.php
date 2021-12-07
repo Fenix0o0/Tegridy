@@ -27,7 +27,7 @@
 </div>
 <div class="form-group">
 <label>Cena: </label>
-<input type="number" name="cena" class="form-control">
+<input type="number" step="0.01" name="cena" class="form-control">
 </div>
 <div class="form-group">
 <label>Ilość: </label>
@@ -41,14 +41,15 @@
 <label>Kategorie:</label>
 </div>
 <div class="form-group">
+<select name='kat' class="form-control">
 <?php
-include('php/connect.php');
 $sql = "SELECT id, nazwaKat from kategorie";
 $result = mysqli_query($connect, $sql);
 while($kat = mysqli_fetch_assoc($result)){
-    echo "<input type='radio' class='group' name='kat' value='".$kat['id']."'>".$kat['nazwaKat']."</input>";
+    echo "<option value='".$kat['id']."'>".$kat['nazwaKat']."</option>";
 }
 ?>
+</select>
 </div>
 <div class="form-group">
 <input type="submit" value="Zatwierdź Edycje" class="form-control mx-auto" style="width: 150px;">

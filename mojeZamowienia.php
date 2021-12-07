@@ -32,10 +32,10 @@ while($zamowienia = mysqli_fetch_assoc($result)){
                 echo "<td style='color:#FF0000;'>".$zamowienia['status']."</td>";
             }else if($zamowienia['status'] == 'WSTRZYMANO'){
                 echo "<td style='color:#FFAA00;'>".$zamowienia['status']."</td>";
-            }else if($zamowienia['status'] == 'W DRODZE'){
-                echo "<td style='color:#0000FF;'>".$zamowienia['status']."</td>";
+            }else if($zamowienia['status'] == 'W_DRODZE'){
+                echo "<td style='color:#0000FF;'>W DRODZE</td>";
             }
-            echo "<td><a href=php/usuwanie.php?id='".$zamowienia['id']."&zamowienie=yes&Ilosc=".$zamowienia['Prod_Ilosc']."&prod=".$zamowienia['id_produkt']."'>Anuluj</a></td>";
+            echo "<td><a href=php/usuwanie.php?id=".$zamowienia['id']."&zamowienie=yes&Ilosc=".$zamowienia['Prod_Ilosc']."&prod=".$zamowienia['id_produkt']."&status=".$zamowienia['status'].">Anuluj</a></td>";
     echo "</tr>";
 }
 echo "</tbody></table>";

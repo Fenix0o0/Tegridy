@@ -10,9 +10,10 @@
 </head>
 <body class="bg-secondary bg-gradient">
 <header>
-        <?php 
-        include('php/nav.php');
-         ?>
+<?php 
+include('php/nav.php');
+$_SESSION['logowanie_adres'] = $_SERVER['PHP_SELF'];
+?>
 </header>
 <div class="mx-auto" style="width: 500px;">
 <form action="php/logowanie.php" method="POST">

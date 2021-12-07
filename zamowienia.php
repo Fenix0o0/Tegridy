@@ -33,7 +33,7 @@ while($zamowienia = mysqli_fetch_assoc($result)){
                 echo "<td style='color:#FF0000;'>".$zamowienia['status']."</td>";
             }else if($zamowienia['status'] == 'WSTRZYMANO'){
                 echo "<td style='color:#FFAA00;'>".$zamowienia['status']."</td>";
-            }else if($zamowienia['status'] == 'W DRODZE'){
+            }else if($zamowienia['status'] == 'W_DRODZE'){
                 echo "<td style='color:#0000FF;'>".$zamowienia['status']."</td>";
             }
             echo "<td><form method='POST' action='php/statusUpdate.php?id=".$zamowienia['id']."'><select name='status'>
@@ -41,7 +41,7 @@ while($zamowienia = mysqli_fetch_assoc($result)){
             <option value='OCZEKUJĄCE'>OCZEKUJĄCE</option>
             <option value='ANULOWANO'>ANULOWANO</option>
             <option value='WSTRZYMANO'>WSTRZYMANO</option>
-            <option value='W DRODZE'>W DRODZE</option>
+            <option value='W_DRODZE'>W DRODZE</option>
             </select><input type='submit' placeholder='Zapisz'></form>";
         echo "</tr>";
 }

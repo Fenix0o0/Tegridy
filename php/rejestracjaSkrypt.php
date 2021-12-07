@@ -2,7 +2,7 @@
 include('connect.php');
 
 session_start();
-if(isset($_POST['login'])){
+if(isset($_POST['login']) && !empty($_POST['login'])){
     $login = $_POST['login'];
 }else{
     $login = $_POST['mail'];
@@ -27,7 +27,7 @@ if($wynik['login'] != $_POST['login']){
            header("location:../index.php");
             $_SESSION["Err"] = "Pomyślnie zarejestrowano!";
         }else{
-            $_SESSION["Err"] = "Nie podano imienia";
+            $_SESSION["Err"] = "Nie podano imienia, nazwiska, hasła i email";
             header("location:../rejestracja.php");
         }
 

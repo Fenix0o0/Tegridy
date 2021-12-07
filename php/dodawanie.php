@@ -40,7 +40,7 @@ if($_GET['opcja'] == 0){
             $_SESSION['info'] = "Pola nazwa, opis, cena, ilość, obraz i kategoria muszą być uzupełnione";
             header("location:../dodajProdukt.php");}
     }else{
-        $_SESSION['info'] = "Produkt o podanej nazwie już istnieje. Czy chcesz dodać produkt o takiej samej nazwie? Jeśli chcesz zmienić dane produktu przejdź do panelu <a href='../edycjaProdukt.php?id=".$dane['id']."'>edycji</a>. <a href='php/dodawanie.php?opcja=1'>Dodaj mimo to.</a>";
+        $_SESSION['info'] = "Produkt o podanej nazwie już istnieje. Czy chcesz dodać produkt o takiej samej nazwie? Jeśli chcesz zmienić dane produktu przejdź do panelu <a style='color:black' href='edycjaProdukt.php?id=".$dane['id']."'>edycji</a>. <a style='color:black' href='php/dodawanie.php?opcja=1'>Dodaj mimo to.</a>";
         header("location:../dodajProdukt.php");
     }
 }else if($_GET['opcja'] == 1){

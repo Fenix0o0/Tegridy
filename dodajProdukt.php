@@ -26,7 +26,7 @@
 </div>
 <div class="form-group">
 <label>Cena: </label>
-<input type="number" name="cena" placeholder="Podaj cenę" class="form-control">
+<input type="number" name="cena" step="0.01" placeholder="Podaj cenę" class="form-control">
 </div>
 <div class="form-group">
 <label>Ilość: </label>
@@ -57,7 +57,7 @@ while($kat = mysqli_fetch_assoc($result)){
 <div class="form-group">
     <label>Podaj nazwę kategori: </label>
     <input type='text' name='nazwa' placeholder="nazwa" class="form-control">
-</div>z
+</div>
 <div class="form-group">
     <label>Podaj opis kategori: </label>
     <input type='text' name='opis' placeholder="opis" class="form-control">
