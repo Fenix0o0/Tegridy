@@ -46,7 +46,7 @@
         <input type="text" name="adress" class="form-control" placeholder="Podaj Adres">
     </div>
     <div class="form-group">
-        <input type="submit" name="rejestracja" value="SIGN IN" class="btn btn-primary">
+        <input type="submit" name="rejestracja" value="SIGN IN" class="btn btn-secondary form-control mx-auto">
     </div>
 </form>
 </div>

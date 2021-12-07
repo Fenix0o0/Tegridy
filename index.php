@@ -8,25 +8,37 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body class="bg-secondary bg-gradient">
 <header>
         <?php 
         include('php/nav.php');
          ?>
 </header>
+<div class="mx-auto" style="width: 500px;">
 <form action="php/logowanie.php" method="POST">
+<div class="form-group">
 <label>Login: </label>
-<input type="text" name="login">
+<input type="text" name="login" class="form-control">
+</div>
+<div class="form-group">
 <label>Hasło: </label>
-<input type="password" name="passwd">
-<input type="submit" value="Loguj!">
+<input type="password" name="passwd" class="form-control">
+</div>
+<label></label>
+<div class="form-group">
+<input type="submit" value="Loguj!" class="form-control mx-auto" style="width: 100px;">
+</div>
 </form>  
+
 <?php
 if(isset($_SESSION["Err"])){
         echo "<p class='error'>".$_SESSION["Err"]."</p>";
         session_unset();
 }
 ?>
-<a href="rejestracja.php?rejestracja=yes">Rejestracja</a>
+<div class="form-group mx-auto mb-auto">
+<p>Nie masz konta?<a href="rejestracja.php?rejestracja=yes"> Zarejestruj!</a></p>
+</div>
+</div>
 </body>
 </html>

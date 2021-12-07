@@ -8,33 +8,53 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body class="bg-secondary bg-gradient">
 <header>
 <?php include('php/nav.php'); ?>
 </header>
+<div class="mx-auto" style="width: 500px;">
+<div class="form-group">
 <h2>Edytowanie Produktu</h2>
 <form action="php/edycja.php" method="POST">
+</div>
+<div class="form-group">
 <label>Nazwa: </label>
-<input type="text" name="nazwa">
+<input type="text" name="nazwa" class="form-control">
+</div>
+<div class="form-group">
 <label>Opis: </label>
-<input type="text" name="opis">
+<input type="text" name="opis" class="form-control">
+</div>
+<div class="form-group">
 <label>Cena: </label>
-<input type="number" name="cena">
+<input type="number" name="cena" class="form-control">
+</div>
+<div class="form-group">
 <label>Ilość: </label>
-<input type="number" name="ilosc">
+<input type="number" name="ilosc" class="form-control">
+</div>
+<div class="form-group">
 <label>Obrazek: </label>
-<input type="text" name="obraz">
-<label>Kategoria</label>
+<input type="text" name="obraz" class="form-control">
+</div>
+<div class="form-group">
+<label>Kategorie:</label>
+</div>
+<div class="form-group">
 <?php
 include('php/connect.php');
 $sql = "SELECT id, nazwaKat from kategorie";
 $result = mysqli_query($connect, $sql);
 while($kat = mysqli_fetch_assoc($result)){
-    echo "<input type='radio' name='kat' value='".$kat['id']."'>".$kat['nazwaKat']."</input>";
+    echo "<input type='radio' class='group' name='kat' value='".$kat['id']."'>".$kat['nazwaKat']."</input>";
 }
 ?>
-<input type="submit" value="Zatwierdź Edycje">
-</form>  
+</div>
+<div class="form-group">
+<input type="submit" value="Zatwierdź Edycje" class="form-control mx-auto" style="width: 150px;">
+</form>
+</div>
+</div>
 <?php
 include('php/alert.php');
 $_SESSION['id'] = $_GET['id'];

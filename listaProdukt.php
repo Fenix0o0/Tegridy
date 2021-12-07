@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body class="bg-secondary bg-gradient">
 <header>
 <?php include('php/nav.php'); ?>
 </header>
@@ -15,7 +15,7 @@
 include("php/connect.php");
 $sql = "SELECT p.id, p.nazwa, k.nazwaKat , p.ilosc, p.cena, p.opis FROM produkty p JOIN kategorie k ON (k.id = p.id_kategoria) ORDER BY id ASC";
 $result = mysqli_query($connect, $sql);
-echo "<table class='table table-success table-hover'><thead><tr><th>ID</ih><th>Nazwa</th><th>Opis</th><th>Ilość</th><th>Cena</th><th>Nazwa Kategorii</th><th colspan=2>Opcje</th></thead><tbody>";
+echo "<table class='table table-dark table-hover'><thead><tr><th>ID</ih><th>Nazwa</th><th>Opis</th><th>Ilość</th><th>Cena</th><th>Nazwa Kategorii</th><th colspan=2>Opcje</th></thead><tbody>";
 while($produkty = mysqli_fetch_assoc($result)){
     echo "<tr>
             <td>".$produkty['id']."</td>

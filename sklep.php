@@ -30,7 +30,7 @@
                                     echo '<h5 class="card-title">'.$produkty['nazwa'].'</h5>';
                                     echo '<p class="card-text">'.$produkty['opis'].'</p>';
                                     echo '<p>Cena: '.$produkty['cena'].'PLN</p>';
-                                    echo '<form method="POST" action="php/zlecenie.php?id='.$produkty['id'].'"><input type="number" name="ilosc" placeholder="Ilość: '.$ilosc.'"><input type="Submit" class="btn btn-primary" placeholder="Zamów"></form>';
+                                    echo '<form method="POST" action="php/zlecenie.php?id='.$produkty['id'].'"><input type="number" name="ilosc" placeholder="Ilość: '.$ilosc.'"><input type="Submit" class="btn btn-secondary mx-auto" placeholder="Zamów"></form>';
                                     
                                 echo '</div>';
                             echo '</div>';

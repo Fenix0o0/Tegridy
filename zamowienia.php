@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body class="bg-secondary bg-gradient">
 <header>
 <?php include('php/nav.php'); ?>
 </header>
