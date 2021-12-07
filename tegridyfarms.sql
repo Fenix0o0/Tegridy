@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 01 Gru 2021, 13:04
--- Wersja serwera: 10.4.21-MariaDB
--- Wersja PHP: 7.4.24
+-- Generation Time: Dec 07, 2021 at 06:59 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `tegridyfarms`
+-- Database: `tegridyfarms`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `kategorie`
+-- Table structure for table `kategorie`
 --
 
 CREATE TABLE `kategorie` (
@@ -34,7 +34,7 @@ CREATE TABLE `kategorie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Zrzut danych tabeli `kategorie`
+-- Dumping data for table `kategorie`
 --
 
 INSERT INTO `kategorie` (`nazwaKat`, `opis`, `id`) VALUES
@@ -42,12 +42,16 @@ INSERT INTO `kategorie` (`nazwaKat`, `opis`, `id`) VALUES
 ('Olejki Kokosowe', 'Olejki o smaku kokosa Kanaste zawierają pełne spektrum naturalnie występujących w konopiach kannabinoidów (m.in. CBD, CBDA, CBC, CBG, CBDV, BCP), terpenów i flawonoidów. Ich obecność zapewnia maksymalną skuteczność tworząc tzw. “efekt otoczenia” wspierający jego działanie. W trosce o bezpieczeństwo, nasz produkt jest wolny od jakichkolwiek właściwości odurzających.', 2),
 ('Olejki Limonkowe', 'Olejki o smaku limonkowym Kanaste zawierają pełne spektrum naturalnie występujących w konopiach kannabinoidów (m.in. CBD, CBDA, CBC, CBG, CBDV, BCP), terpenów i flawonoidów. Ich obecność zapewnia maksymalną skuteczność tworząc tzw. “efekt otoczenia” wspierający jego działanie. W trosce o bezpieczeństwo, nasz produkt jest wolny od jakichkolwiek właściwości odurzających.', 3),
 ('Olejki miętowo-czeko', 'Olejki o smaku miętowo-czekoladowym Kanaste zawierają pełne spektrum naturalnie występujących w konopiach kannabinoidów (m.in. CBD, CBDA, CBC, CBG, CBDV, BCP), terpenów i flawonoidów. Ich obecność zapewnia maksymalną skuteczność tworząc tzw. “efekt otoczenia” wspierający jego działanie. W trosce o bezpieczeństwo, nasz produkt jest wolny od jakichkolwiek właściwości odurzających.', 4),
-('Olejki Waniliowe', 'Olejki o smaku waniliowym Kanaste zawierają pełne spektrum naturalnie występujących w konopiach kannabinoidów (m.in. CBD, CBDA, CBC, CBG, CBDV, BCP), terpenów i flawonoidów. Ich obecność zapewnia maksymalną skuteczność tworząc tzw. “efekt otoczenia” wspierający jego działanie. W trosce o bezpieczeństwo, nasz produkt jest wolny od jakichkolwiek właściwości odurzających.', 5);
+('Olejki Waniliowe', 'Olejki o smaku waniliowym Kanaste zawierają pełne spektrum naturalnie występujących w konopiach kannabinoidów (m.in. CBD, CBDA, CBC, CBG, CBDV, BCP), terpenów i flawonoidów. Ich obecność zapewnia maksymalną skuteczność tworząc tzw. “efekt otoczenia” wspierający jego działanie. W trosce o bezpieczeństwo, nasz produkt jest wolny od jakichkolwiek właściwości odurzających.', 5),
+('Olejki Testowe', 'TEST123', 6),
+('Olejki Testowe', 'Opis 123', 7),
+('Waldusie', 'Jaraj Waldka', 15),
+('Super Test', 'Dupy', 16);
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `klienci`
+-- Table structure for table `klienci`
 --
 
 CREATE TABLE `klienci` (
@@ -62,17 +66,17 @@ CREATE TABLE `klienci` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Zrzut danych tabeli `klienci`
+-- Dumping data for table `klienci`
 --
 
 INSERT INTO `klienci` (`Id`, `Imie`, `Nazwisko`, `Adres`, `mail`, `haslo`, `login`, `administrator`) VALUES
 (1, 'Admin', 'Admin', 'Admin', 'Admin', '3f3def178746a7e49ebc345d2e8a07b0', 'Admin', 1),
-(2, 'Konrad', 'Klient', '123', '123', '202cb962ac59075b964b07152d234b70', 'Klient', 0);
+(2, 'Konrad', 'Klient', '123', '123', '3f3def178746a7e49ebc345d2e8a07b0', 'Klient', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `produkty`
+-- Table structure for table `produkty`
 --
 
 CREATE TABLE `produkty` (
@@ -86,58 +90,74 @@ CREATE TABLE `produkty` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Zrzut danych tabeli `produkty`
+-- Dumping data for table `produkty`
 --
 
 INSERT INTO `produkty` (`id`, `nazwa`, `opis`, `cena`, `ilosc`, `obraz`, `id_kategoria`) VALUES
-(1, 'Olejek Naturalny', 'Olejek o smaku naturalnym Kanaste zawierają pełne spektrum naturalnie występujących w konopiach kannabinoidów (m.in. CBD, CBDA, CBC, CBG, CBDV, BCP), terpenów i flawonoidów. Ich obecność zapewnia maksymalną skuteczność tworząc tzw. “efekt otoczenia” wspierający jego działanie. W trosce o bezpieczeństwo, nasz produkt jest wolny od jakichkolwiek właściwości odurzających.', 199.99, 13, '1naturalny.webp', 1),
-(2, 'Olejek Kokosowy', 'Olejek o smaku kokosowym Kanaste zawierają pełne spektrum naturalnie występujących w konopiach kannabinoidów (m.in. CBD, CBDA, CBC, CBG, CBDV, BCP), terpenów i flawonoidów. Ich obecność zapewnia maksymalną skuteczność tworząc tzw. “efekt otoczenia” wspierający jego działanie. W trosce o bezpieczeństwo, nasz produkt jest wolny od jakichkolwiek właściwości odurzających.', 189.99, 10, '2kokosowy.webp', 2),
-(3, 'Olejek Limonkowy', 'Olejek o smaku limonkowym Kanaste zawierają pełne spektrum naturalnie występujących w konopiach kannabinoidów (m.in. CBD, CBDA, CBC, CBG, CBDV, BCP), terpenów i flawonoidów. Ich obecność zapewnia maksymalną skuteczność tworząc tzw. “efekt otoczenia” wspierający jego działanie. W trosce o bezpieczeństwo, nasz produkt jest wolny od jakichkolwiek właściwości odurzających.', 159.99, 12, '3limonka.webp', 3),
-(4, 'Olejek Miętowo-Czekoladowy', 'Olejek o smaku miętowo-kokosowym Kanaste zawierają pełne spektrum naturalnie występujących w konopiach kannabinoidów (m.in. CBD, CBDA, CBC, CBG, CBDV, BCP), terpenów i flawonoidów. Ich obecność zapewnia maksymalną skuteczność tworząc tzw. “efekt otoczenia” wspierający jego działanie. W trosce o bezpieczeństwo, nasz produkt jest wolny od jakichkolwiek właściwości odurzających.', 209.99, 7, '4mieta-czekolada.webp', 4),
-(5, 'Olejek Waniliowy', 'Olejek o smaku waniliowym Kanaste zawieraja pełne spektrum naturalnie występujących w konopiach kannabinoidów (m.in. CBD, CBDA, CBC, CBG, CBDV, BCP), terpenów i flawonoidów. Ich obecność zapewnia maksymalną skuteczność tworząc tzw. “efekt otoczenia” wspierający jego działanie. W trosce o bezpieczeństwo, nasz produkt jest wolny od jakichkolwiek właściwości odurzających.', 199.99, 9, '5wanilia.webp', 5),
-(12, 'Olejek Testowy', 'Test', 15, 15, 'tak.jpg', 1),
-(13, 'Olej Napędowy', 'Duża energia', 6, 200, 'tak.jpg', 4),
-(24, 'Olejek Testowy', 'Test3', 15, 15, 'olej.png', 5),
-(25, 'Test2', 'Test', 13, 141, '444', 1);
+(1, 'Olejek Naturalny ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat scelerisque orci, vel laoreet augue.', 166, 248, 'img/logo.png', 1),
+(2, 'Olejek Kokosowy', 'Olejek o smaku kokosowym Kanaste zawierają pełne spektrum naturalnie występujących w konopiach kannabinoidów (m.in. CBD, CBDA, CBC, CBG, CBDV, BCP), terpenów i flawonoidów. Ich obecność zapewnia maksymalną skuteczność tworząc tzw. “efekt otoczenia” wspierający jego działanie. W trosce o bezpieczeństwo, nasz produkt jest wolny od jakichkolwiek właściwości odurzających.', 189.99, 248, '2kokosowy.webp', 2),
+(3, 'Olejek Limonkowy', 'Olejek o smaku limonkowym Kanaste zawierają pełne spektrum naturalnie występujących w konopiach kannabinoidów (m.in. CBD, CBDA, CBC, CBG, CBDV, BCP), terpenów i flawonoidów. Ich obecność zapewnia maksymalną skuteczność tworząc tzw. “efekt otoczenia” wspierający jego działanie. W trosce o bezpieczeństwo, nasz produkt jest wolny od jakichkolwiek właściwości odurzających.', 159.99, 248, '3limonka.webp', 3),
+(4, 'Olejek Miętowo-Czekoladowy', 'Olejek o smaku miętowo-kokosowym Kanaste zawierają pełne spektrum naturalnie występujących w konopiach kannabinoidów (m.in. CBD, CBDA, CBC, CBG, CBDV, BCP), terpenów i flawonoidów. Ich obecność zapewnia maksymalną skuteczność tworząc tzw. “efekt otoczenia” wspierający jego działanie. W trosce o bezpieczeństwo, nasz produkt jest wolny od jakichkolwiek właściwości odurzających.', 209.99, 248, '4mieta-czekolada.webp', 4),
+(5, 'Olejek Waniliowy', 'Olejek o smaku waniliowym Kanaste zawieraja pełne spektrum naturalnie występujących w konopiach kannabinoidów (m.in. CBD, CBDA, CBC, CBG, CBDV, BCP), terpenów i flawonoidów. Ich obecność zapewnia maksymalną skuteczność tworząc tzw. “efekt otoczenia” wspierający jego działanie. W trosce o bezpieczeństwo, nasz produkt jest wolny od jakichkolwiek właściwości odurzających.', 199.99, 248, '5wanilia.webp', 5),
+(12, 'Olejek Testowy', 'Test', 15, 233, 'tak.jpg', 1),
+(13, 'Olej Napędowy', 'Duża energia', 6, 15, 'tak.jpg', 4),
+(24, 'Olejek Testowy', 'Test3', 15, 98, 'olej.png', 5),
+(25, 'Test2', 'Test', 13, 28, '444', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `zamowienia`
+-- Table structure for table `zamowienia`
 --
 
 CREATE TABLE `zamowienia` (
   `id` int(11) NOT NULL,
   `id_klient` int(11) NOT NULL,
   `data` date NOT NULL,
-  `id_produkt` int(11) NOT NULL
+  `id_produkt` int(11) NOT NULL,
+  `Prod_Ilosc` int(11) NOT NULL,
+  `Status` varchar(20) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Indeksy dla zrzutów tabel
+-- Dumping data for table `zamowienia`
+--
+
+INSERT INTO `zamowienia` (`id`, `id_klient`, `data`, `id_produkt`, `Prod_Ilosc`, `Status`) VALUES
+(1, 1, '2021-12-04', 1, 2, 'ANULOWANO'),
+(2, 1, '2021-12-04', 1, 2, 'OCZEKUJĄCE'),
+(3, 1, '2021-12-04', 1, 2, 'OCZEKUJĄCE'),
+(4, 1, '2021-12-04', 13, 250, 'WSTRZYMANO'),
+(5, 1, '2021-12-04', 13, 3, 'WSTRZYMANO'),
+(6, 2, '2021-12-04', 24, 150, 'ZREALIZOWANO'),
+(8, 2, '2021-12-05', 12, 15, 'W DRODZE'),
+(9, 1, '2021-12-05', 13, 18, 'WSTRZYMANO');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Indeksy dla tabeli `kategorie`
+-- Indexes for table `kategorie`
 --
 ALTER TABLE `kategorie`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `klienci`
+-- Indexes for table `klienci`
 --
 ALTER TABLE `klienci`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indeksy dla tabeli `produkty`
+-- Indexes for table `produkty`
 --
 ALTER TABLE `produkty`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_kategoria` (`id_kategoria`);
 
 --
--- Indeksy dla tabeli `zamowienia`
+-- Indexes for table `zamowienia`
 --
 ALTER TABLE `zamowienia`
   ADD PRIMARY KEY (`id`),
@@ -145,45 +165,45 @@ ALTER TABLE `zamowienia`
   ADD KEY `id_produkt` (`id_produkt`);
 
 --
--- AUTO_INCREMENT dla zrzuconych tabel
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT dla tabeli `kategorie`
+-- AUTO_INCREMENT for table `kategorie`
 --
 ALTER TABLE `kategorie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT dla tabeli `klienci`
+-- AUTO_INCREMENT for table `klienci`
 --
 ALTER TABLE `klienci`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT dla tabeli `produkty`
+-- AUTO_INCREMENT for table `produkty`
 --
 ALTER TABLE `produkty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT dla tabeli `zamowienia`
+-- AUTO_INCREMENT for table `zamowienia`
 --
 ALTER TABLE `zamowienia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- Ograniczenia dla zrzutów tabel
+-- Constraints for dumped tables
 --
 
 --
--- Ograniczenia dla tabeli `produkty`
+-- Constraints for table `produkty`
 --
 ALTER TABLE `produkty`
   ADD CONSTRAINT `produkty_ibfk_1` FOREIGN KEY (`id_kategoria`) REFERENCES `kategorie` (`id`);
 
 --
--- Ograniczenia dla tabeli `zamowienia`
+-- Constraints for table `zamowienia`
 --
 ALTER TABLE `zamowienia`
   ADD CONSTRAINT `zamowienia_ibfk_1` FOREIGN KEY (`id_klient`) REFERENCES `klienci` (`Id`),
